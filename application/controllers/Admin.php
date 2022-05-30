@@ -84,6 +84,7 @@ class Admin extends CI_Controller {
         }
         public function results_car_owner(){
                 // takes the evaluation of the admin to the model
+                
         }
         public function results_customer(){
                 // takes the evaluation of the admin to the model
