@@ -72,7 +72,6 @@ class Customer_model extends CI_Model {
                                     return $id;
                                         
                                 }else{
-                                         
                                         return $this->upload->display_errors();
                                 }
                         }else{

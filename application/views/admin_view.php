@@ -337,18 +337,17 @@
         }
         /* form for verification */
         .formcontainer{
-            visibility: hidden;
-            text-align: center;
-            justify-content: center; 
-            align-items: center;
-            background-color: orange;
+            /* visibility: hidden; */
+
             position: fixed;
+            background-color: orange;
             z-index: 20;
             top: 5%;
             bottom: 5%;
             left: 10% ;
             right: 10% ;
             width:70% ;
+            height: 100%; 
 
         }
 
@@ -412,15 +411,16 @@
                                 <br>
                                 <!-- <ul><a href="#carownerlogin"><img class=" leftnavimg" src="./images/login.png"></img></a><p class="text">Log in</p></ul>
                                 <br> -->
-                                <ul> <img class="leftnavimg" src="./images/user.png" alt=""> <p class="text">verify customer</p></ul>
+                                <ul> <img class="leftnavimg" src="./images/user.png" alt="" ></img> <p class="text" onclick="document.getElementById('formcustomer').style.visibility='visible'">verify customer</p></ul>
+                                <ul><img class=" leftnavimg" src="./images/add.png" alt="" ></img><p class="text" onclick="document.getElementById('formcustomer').style.visibility='visible'">Add your car</p></ul>
                                 <br>
-                                <ul> <img class="leftnavimg" src="./images/setting.png" alt=""><p class="text">Settings</p></ul>
+                                <ul> <img class="leftnavimg" src="./images/setting.png" alt="" onclick="document.getElementById('gethelp').style.visibility='visible'"><p class="text">Settings</p></ul>
                                 <br>
-                                <ul> <img class="leftnavimg" src="./images/help.png" alt=""><p class="text">verify car-owner</p></ul>
+                                <ul> <img class="leftnavimg" src="./images/help.png" alt="" onclick="document.getElementById('formcarowner').style.visibility='visible'"><p class="text">verify car-owner</p></ul>
                                 <br>
                                 <!-- <ul> <img class="leftnavimg" src="./images/star.png" alt=""><p class="text">Rate us</p></ul> -->
                                 <br>
-                                <ul> <img class="leftnavimg" src="./images/logout.png" alt=""><p class="text">Log out</p></ul>
+                                <ul> <img class="leftnavimg" src="./images/logout.png" alt="" onclick="document.getElementById('gethelp').style.visibility='visible'"><p class="text">Log out</p></ul>
                                 
                                 <br>
                                 
@@ -431,9 +431,9 @@
                 </div>    
             <?php if (isset($verify_customer)):?>
                 <div class="formcontainer" id="formcustomer">
-                <div class="closebtn" onclick="document.getElementById('formcustomer').style.visibility='hidden'"><span class="text" >close</span></div>
+                    <div class="closebtn" onclick="document.getElementById('formcustomer').style.visibility='hidden'"><span class="text" >close</span></div>
                     <!-- for presenting the customers that have yet to be verified -->
-                    <?foreach ($verify_customer as $div): ?>
+                    <!-- <?foreach ($verify_customer as $div): ?> -->
                     <div class="verify" id="verify_cutomer" >
                         <form class="form-style-4 middlefication" action="<?php echo base_url()?>Admin/results_customer" method="post">
                             <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->id?>" alt="">
@@ -446,10 +446,10 @@
                         </form>
 
                     </div> 
-                    <?php endforeach;?>
+                    <!-- <?php endforeach;?> -->
                     
                 </div>
-            <? endif;?>
+            <? endif;?> 
 
             <?if (isset($verify_car_owner)):?> 
                 <div class="formcontainer" id="formcarowner">
