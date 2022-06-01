@@ -337,7 +337,7 @@
         }
         /* form for verification */
         .formcontainer{
-            /* visibility: hidden; */
+            visibility: hidden; 
 
             position: fixed;
             background-color: orange;
