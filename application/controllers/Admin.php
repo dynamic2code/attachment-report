@@ -14,8 +14,8 @@ class Admin extends CI_Controller {
         public function login_validation(){
                 
                 
-                $this->form_validation->set_rules('username', 'user name', 'required');
-                $this->form_validation->set_rules('password', 'user Password', 'required');
+                // $this->form_validation->set_rules('username', 'user name', 'required');
+                // $this->form_validation->set_rules('password', 'user Password', 'required');
 
                         $username = $this->input->post('username'); 
                         $password = $this->input->post('password');
