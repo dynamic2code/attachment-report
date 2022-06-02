@@ -76,13 +76,13 @@ class Admin extends CI_Controller {
         public function verify_customers(){
                 // get the forms and check them
                 $this->load->model("Admin_model");
-                $data["verify_customer"] =  $this->Admin_model-> get_awaiting_customers();
+                $data["verify_customer"] =  $this->Admin_model-> get_waiting_customers();
         }
 
         public function verify_car_owners(){
                 // get the forms and check them
                 $this->load->model("Admin_model");
-                $data["verify_car_owner"] =  $this->Admin_model-> get_awaiting_car_owners();
+                $data["verify_car_owner"] =  $this->Admin_model-> get_waiting_car_owners();
         }
         public function results_car_owner(){
                 // takes the evaluation of the admin to the model

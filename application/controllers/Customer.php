@@ -36,6 +36,7 @@ class Customer extends CI_Controller{
                         'secondname'=> $secondname,
                         'email' => $email,
                         'password'=>$password,
+                        'status'=>'waiting'
                             
                 );
                
@@ -65,7 +66,7 @@ class Customer extends CI_Controller{
                     'first_name'=> $data['firstname'],
                     'customer_id' => $id,
                     'clocation'=> $customer_location,
-                    'status'=> 'waiting'
+                    // 'status'=> 'waiting'
                     ); 
                 // $this->load->library('session');    
                 $this->session->set_userdata($newdata);

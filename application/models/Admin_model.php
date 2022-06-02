@@ -18,17 +18,21 @@ class Admin_model extends CI_Model {
                 $this->db->insert('cars',$data);
                 return true;
         }
-        public function get_awaiting_customers(){
+        public function get_waiting_customers(){
                 //gets from db the latest registerd users that are not verified
-                $location = $this->db->query("SELECT 'location' FROM Admin");
-                $query = $this->db->query("SELECT  FROM Customer WHERE status = 'waiting' AND location = $location");
-
+                // $location = $this->db->query("SELECT 'location' FROM Admin");
+                // $waiting = "waiting";
+                // $this->db->query("SELECT  FROM Customer WHERE 'status' ='waiting' AND 'location' = '$location' ");
+                $this->db->from('Customers');
+                return $this->db->get()->result();
         }
-        public function get_awaiting_car_owners(){
+        public function get_waiting_car_owners(){
                 //gets from db the car owners who have not not been verified
-                $location = $this->db->query("SELECT 'location' FROM Admin");
-                $query = $this->db->query("SELECT  FROM Carowner WHERE status = 'waiting' AND location = $location");
-
+                // $location = $this->db->query("SELECT 'location' FROM Admin");
+                // $waiting = "waiting";
+                // $this->db->query("SELECT  FROM Carowner WHERE 'status' ='waiting' AND  'location'= '$location'");
+                $this->db->from('Carowner');
+                return $this->db->get()->result();
         }
         public function verified_customer(){
                 // writes to the db whether the customer is verified or not
