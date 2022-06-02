@@ -64,7 +64,8 @@ class Customer extends CI_Controller{
                     'password' => $data['password'],
                     'first_name'=> $data['firstname'],
                     'customer_id' => $id,
-                    'clocation'=> $customer_location
+                    'clocation'=> $customer_location,
+                    'status'=> 'waiting'
                     ); 
                 // $this->load->library('session');    
                 $this->session->set_userdata($newdata);

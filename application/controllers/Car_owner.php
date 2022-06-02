@@ -52,7 +52,8 @@ class Car_owner extends CI_Controller{
                                 'firstname'=> $firstname,
                                 'secondname'=> $secondname,
                                 'email' => $email,
-                                'password'=>$password
+                                'password'=>$password,
+                                'status' => 'waiting'
                                     
                         );
                        

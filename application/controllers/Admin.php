@@ -25,6 +25,8 @@ class Admin extends CI_Controller {
                         
                         if($this->Admin_model->can_login($username, $password)){
                                 $this->load->view('admin_view');
+                                $this-> verify_car_owners();
+                                $this ->verify_customers();
                         }
 
                 else{     
@@ -80,7 +82,7 @@ class Admin extends CI_Controller {
         public function verify_car_owners(){
                 // get the forms and check them
                 $this->load->model("Admin_model");
-                $data["verify_car_owner"] =  $this->Admin_model-> get_awaiting_car_owner();
+                $data["verify_car_owner"] =  $this->Admin_model-> get_awaiting_car_owners();
         }
         public function results_car_owner(){
                 // takes the evaluation of the admin to the model
