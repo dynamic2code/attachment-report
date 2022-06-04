@@ -440,8 +440,10 @@
                             <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->dl?>" alt="">
                             <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->imagename?>" alt="">
                             <div>
-                                <button class="formbt"><span>qualified</span></button>
-                                <button class="formbt"><span>not qualified</span></button>
+                                <input type="submit" name="qualified" value="qualified" />
+                                <input type="submit" name="not qualified" value="not qualified" />
+                                <!-- <button class="formbt"><span>qualified</span></button>
+                                <button class="formbt"><span>not qualified</span></button> -->
                             </div>
                         </form>
 
@@ -461,8 +463,10 @@
                             <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->supportingdocs?>" alt="">
                             <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->imagename?>" alt="">
                             <div>
-                                <button class="formbt"><span>qualified</span></button>
-                                <button class="formbt"><span>not qualified</span></button>
+                                <input type="submit" name="qualified" value="qualified" />
+                                <input type="submit" name="not qualified" value="not qualified" />
+                                <!-- <button class="formbt"><span>qualified</span></button>
+                                <button class="formbt"><span>not qualified</span></button> -->
                             </div>
                         </form>
                     </div>
