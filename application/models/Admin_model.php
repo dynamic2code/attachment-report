@@ -33,6 +33,9 @@ class Admin_model extends CI_Model {
                 // $this->db->query("SELECT  FROM Carowner WHERE 'status' ='waiting' AND  'location'= '$location'");
                 $this->db->from('Carowner');
                 return $this->db->get()->result();
+                // $this->db->select('Carowner');
+                // $query = $this->db->get('Carowner');
+                // return $query;
         }
         public function verified_customer(){
                 // writes to the db whether the customer is verified or not

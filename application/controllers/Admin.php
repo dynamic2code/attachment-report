@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
                 $data ['title']='simple log-in with setion';
                 $this->load->view('admin_login', $data);
         }	
-        	public function admin_view()
+        public function admin_view()
         {
                 $this->load->view('admin_view');
         }
@@ -77,12 +77,16 @@ class Admin extends CI_Controller {
                 // get the forms and check them
                 $this->load->model("Admin_model");
                 $data["verify_customer"] =  $this->Admin_model-> get_waiting_customers();
+
+                $this->load->view('admin_view',$data);
         }
 
         public function verify_car_owners(){
                 // get the forms and check them
                 $this->load->model("Admin_model");
                 $data["verify_car_owner"] =  $this->Admin_model-> get_waiting_car_owners();
+
+                $this->load->view('admin_view',$data);
         }
         public function results_car_owner(){
                 // takes the evaluation of the admin to the model
