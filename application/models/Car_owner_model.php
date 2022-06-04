@@ -89,7 +89,7 @@ class Car_owner_model extends CI_Model {
                                                                 
                                     $det = $this->upload->data();
                                     $this->db->where(array('carowner_id'=>$id));				
-                                    $this->db->update('Carowner', array('id_front_name' => $det['file_name']));
+                                    $this->db->update('Carowner', array('id_front' => $det['file_name']));
                                     return $id;
                                         
                                 }else{
@@ -117,7 +117,7 @@ class Car_owner_model extends CI_Model {
                                                                         
                                             $det = $this->upload->data();
                                             $this->db->where(array('carowner_id'=>$id));				
-                                            $this->db->update('Carowner', array('id_back_name' => $det['file_name']));
+                                            $this->db->update('Carowner', array('id_back' => $det['file_name']));
                                             return $id;
                                                 
                                         }else{
