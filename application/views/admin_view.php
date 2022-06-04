@@ -464,7 +464,7 @@
                             <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->imagename?>" alt="">
                             <div>
                                 <input type="submit" name="qualified" value="qualified" />
-                                <input type="submit" name="not qualified" value="not qualified" />
+                                <input type="submit" name="not_qualified" value="not_qualified" />
                                 <!-- <button class="formbt"><span>qualified</span></button>
                                 <button class="formbt"><span>not qualified</span></button> -->
                             </div>
