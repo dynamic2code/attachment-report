@@ -554,13 +554,13 @@ all for the renter car owner
                         <span>Enter Your password</span><input type="password" name="password"  required="true"/>
                         </label>
                         <label for="field4">
-                            <span>National id front</span> <input type="file" name="Id_front">
+                            <span>National id front</span> <input type="file" name="Id_front" required="true">
                         </label>
                         <label for="field4">
-                            <span>Narional id back</span> <input type="file" name="id_back">
+                            <span>Narional id back</span> <input type="file" name="id_back" required="true">
                         </label>
                         <label for="field4">
-                            <span>Suporting documents</span> <input type="file" name="supporting_documents">
+                            <span>Suporting documents</span> <input type="file" name="supporting_documents" required="true">
                         </label>
                         <label>
                         <span> </span><input type="submit" value="Send" />
@@ -650,13 +650,13 @@ all for the renter car owner
                         <span>Enter Your password</span><input type="password" name="password"  required="true"/>
                         </label>
                         <label for="field4">
-                            <span>National id front</span> <input type="file" name="id_front">
+                            <span>National id front</span> <input type="file" name="id_front"required="true"> 
                         </label>
                         <label for="field4">
-                            <span>Narional id back</span> <input type="file" name="id_back">
+                            <span>Narional id back</span> <input type="file" name="id_back" required="true">
                         </label>
                         <label for="field4">
-                                <span>Driving license</span> <input type="file" name="driving_license">
+                                <span>Driving license</span> <input type="file" name="driving_license" required="true">
                         </label>
                         <label>
                         <span> </span><input type="submit" value="Send" />
