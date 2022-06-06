@@ -156,10 +156,7 @@ class Customer_model extends CI_Model {
                 }else{
                         $this->random_results($customer_location);
                 }         
-                
-               
-
-             
+     
         }
         function save_order($oderdata){
                 $this->db->select('Order');
