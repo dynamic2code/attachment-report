@@ -540,7 +540,7 @@ all for the renter car owner
             
                 <div class="loginform" id="addcar" >
                 <div class="closebtn" onclick="document.getElementById('addcar').style.visibility='hidden'"><span class="text">close</span></div>
-                    <form class="form-style-4 middlefication" action="<?php echo base_url()?>Car_owner/register" method="post">
+                    <form class="form-style-4 middlefication" action="<?php echo base_url()?>Car_owner/register" method="post" enctype="multipart/form-data">
                         <label for="field1">
                         <span>Enter Your first Name</span><input type="text" name="firstname" required="true" />
                         </label>
@@ -554,7 +554,7 @@ all for the renter car owner
                         <span>Enter Your password</span><input type="password" name="password"  required="true"/>
                         </label>
                         <label for="field4">
-                            <span>National id front</span> <input type="file" name="Id_front" required="true">
+                            <span>National id front</span> <input type="file" name="id_front" required="true">
                         </label>
                         <label for="field4">
                             <span>Narional id back</span> <input type="file" name="id_back" required="true">
@@ -636,7 +636,7 @@ all for the renter car owner
             <!-- <a href="#regform"><button  class="registercustomer">register</button></a> -->
                 <div class="loginform"  id="regform" >
                     <div class="closebtn" onclick="document.getElementById('regform').style.visibility='hidden'"><span class="text">close</span></div>
-                    <form class="form-style-4 middlefication" action="<?php echo base_url()?>Customer/exist" method="post">
+                    <form class="form-style-4 middlefication" action="<?php echo base_url()?>Customer/exist" method="post" enctype="multipart/form-data">
                         <label for="field1">
                         <span>Enter Your first Name</span><input type="text" name="firstname" required="true" />
                         </label>

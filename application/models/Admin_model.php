@@ -3,9 +3,11 @@ class Admin_model extends CI_Model {
 
      
         public function can_login($username, $password){
-                $query = $this->db->select('Admin');
-                $que=$this->db->query("SELECT * FROM Admin where user_name='$username' and password='$password'");
-                $row = $que->num_rows();
+                // $query = $this->db->select('Admin');
+                // $que=$this->db->query("SELECT * FROM Admin where user_name='$username' and password='$password'");
+                $this->db->where(array('user_name' => $username, 'password' => $password));
+                $query = $this->db->get('Admin');
+                $row = $query->num_rows();
                 if($row >0){
                        return true;
                 }else{
@@ -23,7 +25,7 @@ class Admin_model extends CI_Model {
                 // $location = $this->db->query("SELECT 'location' FROM Admin");
                 // $waiting = "waiting";
                 // $this->db->query("SELECT  FROM Customer WHERE 'status' ='waiting' AND 'location' = '$location' ");
-                $this->db->from('Customers');
+                $this->db->from('Customer');
                 return $this->db->get()->result();
         }
         public function get_waiting_car_owners(){

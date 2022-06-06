@@ -24,9 +24,12 @@ class Admin extends CI_Controller {
                         $this->load->model('Admin_model');
                         
                         if($this->Admin_model->can_login($username, $password)){
-                                $this->load->view('admin_view');
-                                $this-> verify_car_owners();
-                                $this ->verify_customers();
+                                $data["verify_car_owner"] =  $this->Admin_model-> get_waiting_car_owners();
+                                $data["verify_customer"] =  $this->Admin_model-> get_waiting_customers();
+
+                                $this->load->view('admin_view', $data);
+                                // $this-> verify_car_owners();
+                                // $this ->verify_customers();
                         }
 
                 else{     

@@ -433,12 +433,12 @@
                 <div class="formcontainer" id="formcustomer">
                     <div class="closebtn" onclick="document.getElementById('formcustomer').style.visibility='hidden'"><span class="text" >close</span></div>
                     <!-- for presenting the customers that have yet to be verified -->
-                    <!-- <?foreach ($verify_customer as $div): ?> -->
+                    <?foreach ($verify_customer as $div): ?>
                     <div class="verify" id="verify_cutomer" >
                         <form class="form-style-4 middlefication" action="<?php echo base_url()?>Admin/results_customer" method="post">
-                            <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->id?>" alt="">
-                            <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->dl?>" alt="">
-                            <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->imagename?>" alt="">
+                            <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->id_front; ?>" alt="">
+                            <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->id_back; ?>" alt="">
+                            <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->driving_license; ?>" alt="">
                             <div>
                                 <input class="formbt" type="submit" name="qualified" value="qualified" />
                                 <input class="formbt" type="submit" name="not qualified" value="not qualified" />
@@ -448,7 +448,7 @@
                         </form>
 
                     </div> 
-                    <!-- <?php endforeach;?> -->
+                    <?php endforeach;?>
                     
                 </div>
             <? endif;?> 
@@ -459,9 +459,9 @@
                     <?php foreach($verify_car_owner as $div):?>
                     <div class="verify" id="verify_car_owner">
                         <form class="form-style-4 middlefication" action="<?php echo base_url()?>Admin/results_car_owner" method="post">
-                            <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->id?>" alt="">
-                            <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->supportingdocs?>" alt="">
-                            <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->imagename?>" alt="">
+                            <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->id_front; ?>" alt="">
+                            <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->id_back; ?>" alt="">
+                            <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->supporting_documents; ?>" alt="">
                             <div>
                                 <input class="formbt" type="submit" name="qualified" value="qualified" />
                                 <input class="formbt" type="submit" name="not_qualified" value="not_qualified" />

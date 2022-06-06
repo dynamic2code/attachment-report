@@ -69,7 +69,7 @@ class Car_owner_model extends CI_Model {
         public function carownersaving($data){
                 $insert = $this->db->insert('Carowner',$data);
                 $id = $this->db->insert_id();
-                $this->load->helper(array('form', 'url'));
+                // $this->load->helper(array('form', 'url'));
                 // getting the car owner id from the db
                 if ($insert){
                         if(basename($_FILES['id_front']['name'])!=''){
