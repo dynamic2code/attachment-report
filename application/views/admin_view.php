@@ -303,11 +303,12 @@
         }
         .closebtn{
             position: relative;
+            position:sticky;
             background-color: red;
             top: 2%;
             left: 88%;
             width: 10%;
-            height: auto;
+            height: 7%;
             border: 2px brown;
             border-radius: 10px;
             justify-content: center;
@@ -338,16 +339,24 @@
         /* form for verification */
         .formcontainer{
             visibility: hidden; 
-
             position: fixed;
             background-color: orange;
             z-index: 20;
             top: 5%;
             bottom: 5%;
-            left: 10% ;
+            left: 20% ;
             right: 10% ;
             width:70% ;
-            height: 100%; 
+            height: 90%; 
+            overflow-y: auto;
+
+        }
+        .verify{
+            position: relative;
+            height: 50%;
+            max-width: fit-content;
+            color: #495C70;
+
 
         }
 
@@ -412,11 +421,11 @@
                                 <!-- <ul><a href="#carownerlogin"><img class=" leftnavimg" src="./images/login.png"></img></a><p class="text">Log in</p></ul>
                                 <br> -->
                                 <ul> <img class="leftnavimg" src="./images/user.png" alt="" ></img> <p class="text" onclick="document.getElementById('formcustomer').style.visibility='visible'">verify customer</p></ul>
-                                <ul><img class=" leftnavimg" src="./images/add.png" alt="" ></img><p class="text" onclick="document.getElementById('formcustomer').style.visibility='visible'">Add your car</p></ul>
+                                <!-- <ul><img class=" leftnavimg" src="./images/add.png" alt="" ></img><p class="text" onclick="document.getElementById('formcustomer').style.visibility='visible'">Add your car</p></ul> -->
                                 <br>
                                 <ul> <img class="leftnavimg" src="./images/setting.png" alt="" onclick="document.getElementById('gethelp').style.visibility='visible'"><p class="text">Settings</p></ul>
                                 <br>
-                                <ul> <img class="leftnavimg" src="./images/help.png" alt="" onclick="document.getElementById('formcarowner').style.visibility='visible'"><p class="text">verify car-owner</p></ul>
+                                <ul> <img class="leftnavimg" src="./images/help.png" alt="" ><p class="text" onclick="document.getElementById('formcarowner').style.visibility='visible'">verify car-owner</p></ul>
                                 <br>
                                 <!-- <ul> <img class="leftnavimg" src="./images/star.png" alt=""><p class="text">Rate us</p></ul> -->
                                 <br>
@@ -455,7 +464,7 @@
 
             <?if (isset($verify_car_owner)):?> 
                 <div class="formcontainer" id="formcarowner">
-                <div class="closebtn" onclick="document.getElementById('formcarowner').style.visibility='hidden'"><span class="text" >close</span></div>
+                    <div class="closebtn" onclick="document.getElementById('formcarowner').style.visibility='hidden'"><span class="text" >close</span></div>
                     <?php foreach($verify_car_owner as $div):?>
                     <div class="verify" id="verify_car_owner">
                         <form class="form-style-4 middlefication" action="<?php echo base_url()?>Admin/results_car_owner" method="post">
