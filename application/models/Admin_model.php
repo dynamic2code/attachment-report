@@ -39,8 +39,11 @@ class Admin_model extends CI_Model {
                 // $query = $this->db->get('Carowner');
                 // return $query;
         }
-        public function verified_customer(){
+        public function verified_customer($good, $notgood){
                 // writes to the db whether the customer is verified or not
+                if($good){
+                        $this->db->from('Customer'); 
+                }
         }
         public function verified_car_owner(){
                 //writes to the db on the desition made on the car owners status

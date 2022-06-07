@@ -713,9 +713,7 @@ all for the renter car owner
                     <?php $counter++; ?>
 
                     <div id="hire_<?php echo $div->car_id; ?>" class='hire'>
-                            <div class="closebt">
-                                <img  src="./images/delete-button.png" alt="" onclick="document.getElementById('hire_<?php echo $div->car_id; ?>').style.visibility='hidden'">
-                            </div>
+                        <div class="closebtn" onclick="document.getElementById('hire_<?php echo $div->car_id ;?>').style.visibility='hidden'"><span class="text" >close</span></div>
                         <div class="hireimage">
                             <img src="<?php echo base_url()?>/images/<?php echo $div->imagename?>" alt="">  
 
