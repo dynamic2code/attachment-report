@@ -551,9 +551,7 @@
                 <?php if ($this->session->flashdata('carindb_message')!== null): ?>
 
 		        <div id="kenob1" class=" popup_message"><span class="text"><?php echo $this->session->flashdata('carindb_message'); ?></span>
-                    <div class="okay" onclick="document.getElementById('kenobi1').style.visibility='hidden'">
-                        <span class="text">okay</span>
-                    </div>
+                    <div class="closebtn" onclick="document.getElementById('kenobi1').style.visibility='hidden'" ><span class="text" >close</span></div>
                 </div> 
 	            <?php endif; ?>           
                 <?php if ($this->session->flashdata('carindb_error_message')!== null): ?>

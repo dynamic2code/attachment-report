@@ -656,7 +656,7 @@ all for the renter car owner
                             <span>Narional id back</span> <input type="file" name="id_back" required="true">
                         </label>
                         <label for="field4">
-                                <span>Driving license</span> <input type="file" name="driving_license" required="true">
+                            <span>Driving license</span> <input type="file" name="driving_license" required="true">
                         </label>
                         <label>
                         <span> </span><input type="submit" value="Send" />
