@@ -51,75 +51,131 @@ class Customer_model extends CI_Model {
                 $insert = $this->db->insert('Customer',$data);
                 $id = $this->db->insert_id();
                 if ($insert){
-                        if(basename($_FILES['id_front']['name'])!=''){
-                               
-                               
-                                $config['upload_path'] = './user_id_front/';
-                                $config['allowed_types'] = 'gif|jpg|jpeg|png';
-                                $config['max_size']	= '0';
-                                $config['max_width']  = '0';
-                                $config['max_height']  = '0';
+                        //new code for saving the files
+                        // for front 
+                        $config = array();
+                        $config['upload_path'] = './user_id_front/';
+                        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                        $config['max_size']	= '0';
+                        $config['max_width']  = '0';
+                        $config['max_height']  = '0';
                                 
-                                $this->load->library('upload',$config);
-                                $this->upload->initialize($config);
-                                $q = $this->upload->do_upload('id_front');
-                                
-                                if($q){	
+                        $this->load->library('upload',$config, 'id_front');
+                        $this->id_front->initialize($config);
+                        $q = $this->id_front->do_upload('id_front');
+
+                        // for back
+                        $config = array();
+                        $config['upload_path'] = './user_id_back/';
+                        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                        $config['max_size']	= '0';
+                        $config['max_width']  = '0';
+                        $config['max_height']  = '0';
+                                                
+                        $this->load->library('upload',$config, 'id_back');
+                        $this->id_back->initialize($config);
+                        $r = $this->id_back->do_upload('id_back');
+
+                        //for dr
+                        $config = array();
+                        $config['upload_path'] = './driving_license/';
+                        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                        $config['max_size']	= '0';
+                        $config['max_width']  = '0';
+                        $config['max_height']  = '0';
                                                                 
-                                    $det = $this->upload->data();
-                                    $this->db->where(array('customer_id'=>$id));				
-                                    $this->db->update('Customer', array('id_front' => $det['file_name']));
-                                    return $id; 
-                                        if(basename($_FILES['id_back']['name'])!=''){                          
-                                                $config['upload_path'] = './user_id_back/';
-                                                $config['allowed_types'] = 'gif|jpg|jpeg|png';
-                                                $config['max_size']	= '0';
-                                                $config['max_width']  = '0';
-                                                $config['max_height']  = '0';
+                        $this->load->library('upload',$config, 'driving_license');
+                        $this->driving_license->initialize($config);
+                        $s = $this->driving_license->do_upload('driving_license');
+
+                        if($q && $r && $s){	
+                                                                
+                                $det = $this->id_front->data();
+                                $this->db->where(array('customer_id'=>$id));				
+                                $this->db->update('Customer', array('id_front' => $det['file_name']));
+                                
+
+                                $et = $this->id_back->data();
+                                $this->db->where(array('customer_id'=>$id));				
+                                $this->db->update('Customer', array('id_back' => $et['file_name']));
+                                
+
+                                $dt = $this->driving_license->data();
+                                $this->db->where(array('customer_id'=>$id));				
+                                $this->db->update('Customer', array('driving_license' => $dt['file_name']));
+                                return $id;
+
+                        }
+                        //old code
+                        // if(basename($_FILES['id_front']['name'])!=''){
+                               
+                               
+                        //         $config['upload_path'] = './user_id_front/';
+                        //         $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                        //         $config['max_size']	= '0';
+                        //         $config['max_width']  = '0';
+                        //         $config['max_height']  = '0';
+                                
+                        //         $this->load->library('upload',$config);
+                        //         $this->upload->initialize($config);
+                        //         $q = $this->upload->do_upload('id_front');
+                                
+                        //         if($q){	
+                                                                
+                        //             $det = $this->upload->data();
+                        //             $this->db->where(array('customer_id'=>$id));				
+                        //             $this->db->update('Customer', array('id_front' => $det['file_name']));
+                        //             return $id; 
+                        //                 if(basename($_FILES['id_back']['name'])!=''){                          
+                        //                         $config['upload_path'] = './user_id_back/';
+                        //                         $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                        //                         $config['max_size']	= '0';
+                        //                         $config['max_width']  = '0';
+                        //                         $config['max_height']  = '0';
                                                 
-                                                $this->load->library('upload',$config);
-                                                $this->upload->initialize($config);
-                                                $q = $this->upload->do_upload('id_back');
+                        //                         $this->load->library('upload',$config);
+                        //                         $this->upload->initialize($config);
+                        //                         $q = $this->upload->do_upload('id_back');
                                                 
-                                                if($q){	
+                        //                         if($q){	
                                                                                 
-                                                        $et = $this->upload->data();
-                                                        $this->db->where(array('customer_id'=>$id));				
-                                                        $this->db->update('Customer', array('id_back' => $et['file_name']));
-                                                        return $id;
-                                                        if(basename($_FILES['driving_license']['name'])!=''){
+                        //                                 $et = $this->upload->data();
+                        //                                 $this->db->where(array('customer_id'=>$id));				
+                        //                                 $this->db->update('Customer', array('id_back' => $et['file_name']));
+                        //                                 return $id;
+                        //                                 if(basename($_FILES['driving_license']['name'])!=''){
                                                                 
                                                                 
-                                                                $config['upload_path'] = './driving_license/';
-                                                                $config['allowed_types'] = 'gif|jpg|jpeg|png';
-                                                                $config['max_size']	= '0';
-                                                                $config['max_width']  = '0';
-                                                                $config['max_height']  = '0';
+                        //                                         $config['upload_path'] = './driving_license/';
+                        //                                         $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                        //                                         $config['max_size']	= '0';
+                        //                                         $config['max_width']  = '0';
+                        //                                         $config['max_height']  = '0';
                                                                 
-                                                                $this->load->library('upload',$config);
-                                                                $this->upload->initialize($config);
-                                                                $q = $this->upload->do_upload('driving_license');
+                        //                                         $this->load->library('upload',$config);
+                        //                                         $this->upload->initialize($config);
+                        //                                         $q = $this->upload->do_upload('driving_license');
                                                                 
-                                                                if($q){	
+                        //                                         if($q){	
                                                                                                 
-                                                                        $dt = $this->upload->data();
-                                                                        $this->db->where(array('customer_id'=>$id));				
-                                                                        $this->db->update('Customer', array('driving_license' => $dt['file_name']));
-                                                                        return $id;
+                        //                                                 $dt = $this->upload->data();
+                        //                                                 $this->db->where(array('customer_id'=>$id));				
+                        //                                                 $this->db->update('Customer', array('driving_license' => $dt['file_name']));
+                        //                                                 return $id;
                                                                         
-                                                                }
-                                                        }
+                        //                                         }
+                        //                                 }
 
-                                                }     
+                        //                         }     
                                         
-                                        }                                    
-                                }
+                        //                 }                                    
+                        //         }
 
 
 
-                        }else{
-                                return $this->upload->display_errors();
-                        }       
+                        // }else{
+                        //         return $this->upload->display_errors();
+                        // }       
                 } else {
                             return "Error saving car details to database";
                 }

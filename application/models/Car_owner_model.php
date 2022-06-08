@@ -72,89 +72,143 @@ class Car_owner_model extends CI_Model {
                 // $this->load->helper(array('form', 'url'));
                 // getting the car owner id from the db
                 if ($insert){
-                        if(basename($_FILES['id_front']['name'])!=''){
-                               
-                               
-                                $config['upload_path'] = './owner_id_front/';
-                                $config['allowed_types'] = 'gif|jpg|jpeg|png';
-                                $config['max_size']	= '0';
-                                $config['max_width']  = '0';
-                                $config['max_height']  = '0';
+                        $config = array();
+                        $config['upload_path'] = './owner_id_front/';
+                        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                        $config['max_size']	= '0';
+                        $config['max_width']  = '0';
+                        $config['max_height']  = '0';
                                 
-                                $this->load->library('upload',$config);
-                                $this->upload->initialize($config);
-                                $q = $this->upload->do_upload('id_front');
-                                
-                                if($q){	
-                                                                
-                                    $det = $this->upload->data();
-                                    $this->db->where(array('car_owner_id'=>$id));				
-                                    $this->db->update('Carowner', array('id_front' => $det['file_name']));
-                                    return $id;
-                                        
-                                }else{
-                                         
-                                        return $this->upload->display_errors();
-                                }
-                        }else{
-                                echo("error");
-                        }       
+                        $this->load->library('upload',$config, 'id_front');
+                        $this->id_front->initialize($config);
+                        $q = $this->id_front->do_upload();
 
-                        if(basename($_FILES['id_back']['name'])!=''){
-                               
-                               
-                                        $config['upload_path'] = './owner_id_back/';
-                                        $config['allowed_types'] = 'gif|jpg|jpeg|png';
-                                        $config['max_size']	= '0';
-                                        $config['max_width']  = '0';
-                                        $config['max_height']  = '0';
-                                        
-                                        $this->load->library('upload',$config);
-                                        $this->upload->initialize($config);
-                                        $q = $this->upload->do_upload('id_back');
-                                        
-                                        if($q){	
-                                                                        
-                                            $det = $this->upload->data();
-                                            $this->db->where(array('car_owner_id'=>$id));				
-                                            $this->db->update('Carowner', array('id_back' => $det['file_name']));
-                                            return $id;
+                        // for back
+                        $config = array();
+                        $config['upload_path'] = './owner_id_back/';
+                        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                        $config['max_size']	= '0';
+                        $config['max_width']  = '0';
+                        $config['max_height']  = '0';
                                                 
-                                        }else{
-                                                 
-                                                return $this->upload->display_errors();
-                                        } 
-                                }else{
-                                        echo("error");
-                                }       
+                        $this->load->library('upload',$config,'id_back' );
+                        $this->id_back->initialize($config);
+                        $r = $this->id_back->do_upload();
 
-                        if(basename($_FILES['supporting_documents']['name'])!=''){
+                        //for sp
+                        $config = array();
+                        $config['upload_path'] = './supporting_documents/';
+                        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                        $config['max_size']	= '0';
+                        $config['max_width']  = '0';
+                        $config['max_height']  = '0';
+                                                                
+                        $this->load->library('upload',$config,'supporting_documents' );
+                        $this->supporting_documents->initialize($config);
+                        $s = $this->supporting_documents->do_upload();
+
+                        if($q && $r && $s){	
+                                                                
+                                $det = $this->id_front->data();
+                                $this->db->where(array('car_owner_id'=>$id));				
+                                $this->db->update('Carowner', array('id_front' => $det['file_name']));
+                                
+
+                                $et = $this->id_back->data();
+                                $this->db->where(array('car_owner_id'=>$id));				
+                                $this->db->update('Carowner', array('id_front' => $et['file_name']));
+                                
+
+                                $dt = $this->supporting_documents->data();
+                                $this->db->where(array('car_owner_id'=>$id));				
+                                $this->db->update('Carowner', array('id_front' => $dt['file_name']));
+                                return $id;
+
+                        }
+                        //old code
+                //         if(basename($_FILES['id_front']['name'])!=''){
                                
                                
-                               $config['upload_path'] = './supporting_documents/';
-                               $config['allowed_types'] = 'gif|jpg|jpeg|png';
-                               $config['max_size']	= '0';
-                               $config['max_width']  = '0';
-                               $config['max_height']  = '0';
-                               
-                               $this->load->library('upload',$config);
-                               $this->upload->initialize($config);
-                               $q = $this->upload->do_upload('supporting_documents');
-                               
-                               if($q){	
-                                                               
-                                   $det = $this->upload->data();
-                                   $this->db->where(array('car_owner_id'=>$id));				
-                                   $this->db->update('Carowner', array('supporting_documents' => $det['file_name']));
-                                   return $id;
-                                       
-                               }else{
+                //                 $config['upload_path'] = './owner_id_front/';
+                //                 $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                //                 $config['max_size']	= '0';
+                //                 $config['max_width']  = '0';
+                //                 $config['max_height']  = '0';
+                                
+                //                 $this->load->library('upload',$config);
+                //                 $this->upload->initialize($config);
+                //                 $q = $this->upload->do_upload('id_front');
+                                
+                //                 if($q){	
+                                                                
+                //                     $det = $this->upload->data();
+                //                     $this->db->where(array('car_owner_id'=>$id));				
+                //                     $this->db->update('Carowner', array('id_front' => $det['file_name']));
+                //                     return $id;
                                         
-                                       return $this->upload->display_errors();
-                               }
-                       }else{
-                                return "Saved Successfully await verification";
-                       }
+                //                 }else{
+                                         
+                //                         return $this->upload->display_errors();
+                //                 }
+                //         }else{
+                //                 echo("error");
+                //         }       
+
+                //         if(basename($_FILES['id_back']['name'])!=''){
+                               
+                               
+                //                         $config['upload_path'] = './owner_id_back/';
+                //                         $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                //                         $config['max_size']	= '0';
+                //                         $config['max_width']  = '0';
+                //                         $config['max_height']  = '0';
+                                        
+                //                         $this->load->library('upload',$config);
+                //                         $this->upload->initialize($config);
+                //                         $q = $this->upload->do_upload('id_back');
+                                        
+                //                         if($q){	
+                                                                        
+                //                             $det = $this->upload->data();
+                //                             $this->db->where(array('car_owner_id'=>$id));				
+                //                             $this->db->update('Carowner', array('id_back' => $det['file_name']));
+                //                             return $id;
+                                                
+                //                         }else{
+                                                 
+                //                                 return $this->upload->display_errors();
+                //                         } 
+                //                 }else{
+                //                         echo("error");
+                //                 }       
+
+                //         if(basename($_FILES['supporting_documents']['name'])!=''){
+                               
+                               
+                //                $config['upload_path'] = './supporting_documents/';
+                //                $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                //                $config['max_size']	= '0';
+                //                $config['max_width']  = '0';
+                //                $config['max_height']  = '0';
+                               
+                //                $this->load->library('upload',$config);
+                //                $this->upload->initialize($config);
+                //                $q = $this->upload->do_upload('supporting_documents');
+                               
+                //                if($q){	
+                                                               
+                //                    $det = $this->upload->data();
+                //                    $this->db->where(array('car_owner_id'=>$id));				
+                //                    $this->db->update('Carowner', array('supporting_documents' => $det['file_name']));
+                //                    return $id;
+                                       
+                //                }else{
+                                        
+                //                        return $this->upload->display_errors();
+                //                }
+                //        }else{
+                //                 return "Saved Successfully await verification";
+                //        }
                    } else {
                             return "Error saving car details to database";
                    }
