@@ -473,6 +473,7 @@
                             <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->id_back; ?>" alt="">
                             <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->supporting_documents; ?>" alt="">
                             <div>
+                                <input type="hidden" name="customers_id" value="<?php echo $div->customers_id; ?>" >
                                 <input class="formbt" type="radio" name="qualified" value="qualified" /> <span>verified</span>
                                 <input class="formbt" type="radio" name="not_qualified" value="not_qualified" /><span>not verified</span>
                                 <input type="submit" value="Submit">
