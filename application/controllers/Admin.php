@@ -97,7 +97,7 @@ class Admin extends CI_Controller {
                 $notgood = $this->input->post('not_verified');  
                 
                 $this->load->model('Admin_model');
-                $this->Admin_model-> verify_car_owners();
+                $this->Admin_model-> verified_car_owner();
         }
         public function results_customer(){
                 // takes the evaluation of the admin to the model
@@ -107,6 +107,6 @@ class Admin extends CI_Controller {
                 
                 
                 $this->load->model('Admin_model');
-                $this->Admin_model-> verify_customers();
+                $this->Admin_model-> verified_customer($good, $notgood);
         }
 }

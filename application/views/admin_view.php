@@ -449,8 +449,9 @@
                             <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->id_back; ?>" alt="">
                             <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->driving_license; ?>" alt="">
                             <div>
-                                <input class="formbt" type="submit" name="qualified" value="qualified" />
-                                <input class="formbt" type="submit" name="not qualified" value="not qualified" />
+                                <input class="formbt" type="radio" name="qualified" value="qualified" /> <span>verified</span>
+                                <input class="formbt" type="radio" name="not qualified" value="not qualified" /><span>not verified</span>
+                                <input type="submit" value="Submit">
                                 <!-- <button ><span>qualified</span></button>
                                 <button ><span>not qualified</span></button> -->
                             </div>
@@ -472,8 +473,9 @@
                             <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->id_back; ?>" alt="">
                             <img class="formimg" src="<?php echo base_url()?>/images/<?php echo $div->supporting_documents; ?>" alt="">
                             <div>
-                                <input class="formbt" type="submit" name="qualified" value="qualified" />
-                                <input class="formbt" type="submit" name="not_qualified" value="not_qualified" />
+                                <input class="formbt" type="radio" name="qualified" value="qualified" /> <span>verified</span>
+                                <input class="formbt" type="radio" name="not_qualified" value="not_qualified" /><span>not verified</span>
+                                <input type="submit" value="Submit">
                                 <!-- <button ><span>qualified</span></button>
                                 <button ><span>not qualified</span></button> -->
                             </div>
