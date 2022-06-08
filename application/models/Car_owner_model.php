@@ -72,6 +72,7 @@ class Car_owner_model extends CI_Model {
                 // $this->load->helper(array('form', 'url'));
                 // getting the car owner id from the db
                 if ($insert){
+
                         $config = array();
                         $config['upload_path'] = './owner_id_front/';
                         $config['allowed_types'] = 'gif|jpg|jpeg|png';
@@ -81,7 +82,7 @@ class Car_owner_model extends CI_Model {
                                 
                         $this->load->library('upload',$config, 'id_front');
                         $this->id_front->initialize($config);
-                        $q = $this->id_front->do_upload();
+                        $q = $this->id_front->do_upload('id_front');
 
                         // for back
                         $config = array();
@@ -93,7 +94,7 @@ class Car_owner_model extends CI_Model {
                                                 
                         $this->load->library('upload',$config,'id_back' );
                         $this->id_back->initialize($config);
-                        $r = $this->id_back->do_upload();
+                        $r = $this->id_back->do_upload('id_back');
 
                         //for sp
                         $config = array();
@@ -105,25 +106,28 @@ class Car_owner_model extends CI_Model {
                                                                 
                         $this->load->library('upload',$config,'supporting_documents' );
                         $this->supporting_documents->initialize($config);
-                        $s = $this->supporting_documents->do_upload();
+                        $s = $this->supporting_documents->do_upload('supporting_documents');
 
                         if($q && $r && $s){	
                                                                 
                                 $det = $this->id_front->data();
-                                $this->db->where(array('car_owner_id'=>$id));				
+                                $this->db->where(array('car_owners_id'=>$id));				
                                 $this->db->update('Carowner', array('id_front' => $det['file_name']));
                                 
 
                                 $et = $this->id_back->data();
-                                $this->db->where(array('car_owner_id'=>$id));				
+                                $this->db->where(array('car_owners_id'=>$id));				
                                 $this->db->update('Carowner', array('id_front' => $et['file_name']));
                                 
 
                                 $dt = $this->supporting_documents->data();
-                                $this->db->where(array('car_owner_id'=>$id));				
+                                $this->db->where(array('car_owners_id'=>$id));				
                                 $this->db->update('Carowner', array('id_front' => $dt['file_name']));
                                 return $id;
 
+                        }else{
+                                        
+                                return $this->upload->display_errors();
                         }
                         //old code
                 //         if(basename($_FILES['id_front']['name'])!=''){
