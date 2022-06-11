@@ -78,6 +78,7 @@ class Admin extends CI_Controller {
         
         public function verify_customers(){
                 // get the forms and check them
+                global $data;
                 $this->load->model("Admin_model");
                 $data["verify_customer"] =  $this->Admin_model-> get_waiting_customers();
 
@@ -90,6 +91,7 @@ class Admin extends CI_Controller {
                 $data["verify_car_owner"] =  $this->Admin_model-> get_waiting_car_owners();
 
                 $this->load->view('admin_view',$data);
+                
         }
         public function results_car_owner(){
                 // takes the evaluation of the admin to the model
@@ -98,6 +100,7 @@ class Admin extends CI_Controller {
                 
                 $this->load->model('Admin_model');
                 $this->Admin_model-> verified_car_owner();
+                redirect('admin/admin_view');
         }
         public function results_customer(){
                 // takes the evaluation of the admin to the model
@@ -108,5 +111,6 @@ class Admin extends CI_Controller {
                 
                 $this->load->model('Admin_model');
                 $this->Admin_model-> verified_customer($good, $notgood);
+                redirect('admin/admin_view');
         }
 }
