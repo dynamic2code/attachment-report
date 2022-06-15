@@ -723,27 +723,37 @@ all for the renter car owner
                             <form class="form-style-4 form" action="<?php echo base_url()?>Customer/make_order" method="post">                      
                                 <input type="hidden" name="car_id" value="<?php echo $div->car_id; ?>" >
                                 <label for="field1">
-                                <span>Pick up place</span><input type="text" name="pickupplace" required="true"></input>
+                                <span class="text">Pick up place</span><input type="text" name="pickupplace" required="true"></input>
                                 </label>
                                 <label for="field2">
-                                <span>Return place</span><input type="text" name="dropoffplace" required="true"></input>
+                                <span class="text">Return place</span><input type="text" name="dropoffplace" required="true"></input>
                                 </label>
                                 <label for="field2">
-                                <span>Time for rent</span><input type="text" name="time" required="true" />
+                                <span class="text">Time for rent</span><input type="text" name="time" required="true" />
                                 </label>
                                 <label for="field3">
-                                <span>Pick up time</span><input type="text" name="pickuptime" required="true"></input>
+                                <span class="text">Pick up time</span><input type="text" name="pickuptime" required="true"></input>
                                 </label>
                                 <label for="field4">
-                                <span>Return time</span><input  type="text" name="dropofftime"  required="true"></input>
+                                <span class="text">Return time</span><input  type="text" name="dropofftime"  required="true"></input>
                                 </label>
                                 <label for="field4">
-                                <span>Driving mode</span><input type="checkbox" name="mode" id="">
+                                <span class="text">Driving mode</span><input type="checkbox" name="mode" id="">
                                                         <input type="checkbox" name="mode" id="">
                                 </label>
-                                <label>
+
+                                <!-- <label> -->
                                     <!-- enter the method of payment -->
-                                <span> </span><input type="submit" value="Finish" />
+                                    <div class="paymntmethod">
+                                        <span class="text">Method of payment</span>
+                                        <div class="subclasspay" id="visa">
+                                            <span class="text">visa</span>
+                                        </div>
+                                        <div class="subclasspay" id="mpesa">
+                                            <span class="text">Mpesa</span>
+                                        </div>
+                                    </div>
+                                <span> </span><input type="submit" value="rent" />
                             </form>
                         </div>
 
