@@ -96,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             border-radius: 999px;
             box-shadow: #0F87DF 0 10px 20px -10px;
             box-sizing: border-box;
-            color: #FFFFFF;
+            color: #1E1711;
             cursor: pointer;
             font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
             font-size: 16px;
@@ -117,9 +117,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         .form-style-4{
             width: 450px;
             font-size: 16px;
-            background: #495C70;
+            background: #1E1711;
             padding: 30px 30px 15px 30px;
-            border: 5px solid #53687E;
+            border: 5px solid #1E1711;
         }
         .form-style-4 input[type=submit],
         .form-style-4 input[type=button],
@@ -130,7 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             font-family: Georgia, "Times New Roman", Times, serif;
             font-size: 16px;
-            color: #fff;
+            color: #1E1711;
 
         }
         .form-style-4 label {
@@ -159,7 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             background: transparent;
             outline: none;
             border: none;
-            border-bottom: 1px dashed #83A4C5;
+            border-bottom: 1px dashed #1E1711;
             width: 275px;
             overflow: hidden;
             resize:none;
@@ -367,13 +367,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         .hireform{
             position: relative;
             width: 100%;
-            height: 50%;
-            background-color: peru;
+            height: auto;
+            background-color: #1E1711;
+            z-index: 6;
         }
         .form{
             position: relative;
             left: 30%;
-            background-color: peru;
+            background-color: #1E1711;
             border: none;
         }
         .searchdiv:target{
@@ -388,7 +389,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             height: auto;
             border: 5% brown;
             border-radius: 5%;
-            z-index: 10;
+            z-index: 1.5;
             position: absolute;
             top: 30%;
             left: 50%;
@@ -459,7 +460,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         .middlefication{
             position: relative;
             left: 20%;
-            background-color: orange;
+            background-color: #1E1711;
             border: none;
             top: 10%;
         }
